@@ -22,8 +22,6 @@ The daemon creates and manages Docker objects, such as images, containers, netwo
 
     Note: Docker is licensed under the open source Apache 2.0 license.
 
-For more details, see ![Docker Architecture](https://docs.docker.com/get-started/overview/#docker-architecture) .
-
 #### Traditional Deployment
 
 ![Traditional Deployment](images/docker-traditional-deployment.png)
@@ -33,28 +31,57 @@ For more details, see ![Docker Architecture](https://docs.docker.com/get-started
 ![Docker Deployment](images/docker-zz-deployment.png)
 
 
-Docker provides tooling and a platform to manage the lifecycle of your containers:
+# ![Docker Architecture](https://docs.docker.com/get-started/overview/#docker-architecture) .
+Docker uses a client-server architecture. The Docker client talks to the Docker daemon, which does the heavy lifting of building, running, and distributing your Docker containers. The Docker client and daemon can run on the same system, or you can connect a Docker client to a remote Docker daemon. The Docker client and daemon communicate using a REST API, over UNIX sockets or a network interface.
 
-    Develop your application and its supporting components using containers.
-    The container becomes the unit for distributing and testing your application.
-    When you’re ready, deploy your application into your production environment, as a container or an orchestrated service. This works the same whether your production environment is a local data center, a cloud provider, or a hybrid of the two.
+![](https://user-images.githubusercontent.com/25608527/83327359-bbefb900-a298-11ea-9537-9ffa94aaca80.png)
+
+### The Docker daemon
+The Docker daemon (dockerd) listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. A daemon can also communicate with other daemons to manage Docker services.
+
+
+### The Docker client
+The Docker client (docker) is the primary way that many Docker users interact with Docker. When you use commands such as docker run, the client sends these commands to dockerd, which carries them out. The docker command uses the Docker API. The Docker client can communicate with more than one daemon.
+
+### Docker registries
+A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use, and Docker is configured to look for images on Docker Hub by default. You can even run your own private registry. If you use Docker Datacenter (DDC), it includes Docker Trusted Registry (DTR).
+
+When you use the docker pull or docker run commands, the required images are pulled from your configured registry. When you use the docker push command, your image is pushed to your configured registry.
+Docker objects
+
+When you use Docker, you are creating and using images, containers, networks, volumes, plugins, and other objects. This section is a brief overview of some of those objects.
+
+## Images
+
+An image is a **`read-only template with instructions for creating a Docker container`**. Often, an image is based on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.
+
+You might create your own images or you might only use those created by others and published in a registry. To build your own image, you create a **`Dockerfile`** with a `simple syntax` for defining the steps needed to create the image and run it. Each instruction in a Dockerfile creates a layer in the image. When you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt. This is part of what makes images so lightweight, small, and fast, when compared to other virtualization technologies.
+
+## Containers
+
+A container is a **`runnable instance of an image`**. You can `create, start, stop, move, or delete` a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.
+
+By default, a container is relatively well isolated from other containers and its host machine. You can control how isolated a container’s network, storage, or other underlying subsystems are from other containers or from the host machine.
+
+A container is defined by its image as well as any configuration options you provide to it when you create or start it. When a container is removed, any changes to its state that are not stored in persistent storage disappear.
 
 # Docker in 5 Steps
 
 Let's learn Docker in 5 Easy Steps. 
 
-- Step 00 - Installing Docker
-- Step 01 - A simple Docker use case - Run an existing application
-- Step 02 - Playing with Docker - Containers and Images
-- Step 03 - How does Docker work?
-- Step 04 - Manually creating a docker image
-- Step 05 - Dockerizing a Spring Boot Application using Dockerfile and Spotify Maven Plugin
+- 0 - Installing Docker
+- 1 - A simple Docker use case - Run an existing application
+- 2 - Playing with Docker - Containers and Images
+- 3 - How does Docker work?
+- 4 - Manually creating a docker image
+- 5 - Dockerizing a Spring Boot Application using Dockerfile and Spotify Maven Plugin
 
-### Step 00 - Installing Docker
+### Step 0 - Installing Docker
 
 - https://docs.docker.com/install/
 
-### Step 01 - A Simple Docker User Case - Run an existing application
+
+### Step 1 - A Simple Docker User Case - Run an existing application
 
 - https://hub.docker.com/repository/docker/devil143bunny/docker-in-5-steps-todo-rest-api-h2
 
