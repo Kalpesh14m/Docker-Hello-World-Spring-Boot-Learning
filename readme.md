@@ -204,3 +204,11 @@ By default, when you create a container, it does not publish any of its ports to
 
 
 ### It will run Dockerfile and will do all steps that we learn in [Step 4](#step-4-manually-creating-a-docker-image)
+It will build project and automatically it will crete [docker image](#images).
+![](https://user-images.githubusercontent.com/25608527/83335320-95964180-a2c9-11ea-965b-9725f1579171.png)
+
+Run docker image
+![](https://user-images.githubusercontent.com/25608527/83335357-f0c83400-a2c9-11ea-8e32-3f1952087ed1.png)
+
+and without any configuration you can run application
+![](https://user-images.githubusercontent.com/25608527/83335367-ffaee680-a2c9-11ea-84c5-f9c5f34ce0a0.png)
