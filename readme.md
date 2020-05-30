@@ -93,6 +93,9 @@ docker run -d -p 5000:5000 devil143bunny/docker-in-5-steps-todo-rest-api-h2:1.0.
 docker run -d -p 8761:8761 springcloud/eureka
 ```
 
+
+### Step 5 : Containerizing Spring Boot Application using Dockerfile and Spotify Maven Plugin
+
 Create docker container for java
 ```
 docker run -dit openjdk:8-jdk-alpine
