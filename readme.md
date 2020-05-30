@@ -94,31 +94,65 @@ docker run -d -p 8761:8761 springcloud/eureka
 ```
 
 
-### Step 5 : Containerizing Spring Boot Application using Dockerfile and Spotify Maven Plugin
+### Step 4 :  Manually creating a docker image
 
-Create docker container for java
+#### 1. Create docker container for java with alpine because it is light weight java version.
 ```
 docker run -dit openjdk:8-jdk-alpine
 ```
-it will generate container 
+![](https://user-images.githubusercontent.com/25608527/83330762-1136c500-a2af-11ea-98d5-545be27f30cb.png)
+
+After running above command it will generate container.
 
 ![](https://user-images.githubusercontent.com/25608527/83328012-c95b7200-a29d-11ea-95c9-51c5621744d0.png)
 
-to add our spring boot application into container use below command
+#### 2. To add our spring boot application into container first create `jar file of our application` then use below command
 ```
 docker container cp [jar file path] [java container id]:/tmp
 ```
 ![](https://user-images.githubusercontent.com/25608527/83328103-4ab30480-a29e-11ea-8b52-ff0c66eafe89.png)
 
-To check that our application jar is added into container or not follow below command
+#### 3. To check that our application jar is added into container or not follow below command
 ```
 docker container exec [container ID] ls /tmp
 ```
-#### exec
+##### exec
+
 The most popular usage of the `“docker exec”` command is to **launch a Bash terminal within a container**. In order to start a Bash shell in a Docker container, execute the `“docker exec”` command with the `“-it”` option and specify the container ID as well as the path to the bash shell.
 
 ![](https://user-images.githubusercontent.com/25608527/83328102-4981d780-a29e-11ea-87aa-6035b79144a6.png)
 
+#### 4. Create image for docker
+It can be useful to commit a container’s file changes or settings into a new image. This allows you to debug a container by running an interactive shell, or to export a working dataset to another server. Generally, it is better to use Dockerfiles to manage your images in a documented and maintainable way.
+
+```
+docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
+```
+##### ![commit](https://docs.docker.com/engine/reference/commandline/commit/) 
+commit helps to convert container into image. The commit operation will not include any data contained in volumes mounted inside the container.
+
+![](https://user-images.githubusercontent.com/25608527/83329195-b9e02700-a2a5-11ea-995d-bbd583348303.png)
+
+![](https://user-images.githubusercontent.com/25608527/83329439-24de2d80-a2a7-11ea-9b3f-0a458a599b2b.png)
+
+#### 5. We successfully created image but when we will run image we need to execute java code.
+```
+docker container commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
+```
 
 
-## Create image for docker
+### Step 5 : Containerizing Spring Boot Application using Dockerfile and Spotify Maven Plugin
+
+- Write Spring boot application( you can make clone or download my spring boot project from git)
+```
+git clone https://github.com/Kalpesh14m/Docker-Spring-Boot-Learning.git
+```
+
+- `Import project` to your favourite IDE
+- In project we need to follow 3 important steps.
+  1. Add ![**`plugin`**](https://github.com/spotify/dockerfile-maven) into **`pom.xml`** file 
+  2. Cereate ![**`Dockerfile`**](https://docs.docker.com/engine/reference/builder/)
+  
+    ***NOTE:*** file name must be exactly same `Dockerfile` without extension.
+  3. run project with `Maven build -> Goals: package then apply and run` 
+
