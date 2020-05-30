@@ -100,17 +100,15 @@ docker run -d -p 8761:8761 springcloud/eureka
 ```
 docker run -dit openjdk:8-jdk-alpine
 ```
-![](https://user-images.githubusercontent.com/25608527/83330762-1136c500-a2af-11ea-98d5-545be27f30cb.png)
-
 After running above command it will generate container.
 
-![](https://user-images.githubusercontent.com/25608527/83328012-c95b7200-a29d-11ea-95c9-51c5621744d0.png)
+![](https://user-images.githubusercontent.com/25608527/83330762-1136c500-a2af-11ea-98d5-545be27f30cb.png)
 
 #### 2. To add our spring boot application into container first create `jar file of our application` then use below command
 ```
 docker container cp [jar file path] [java container id]:/tmp
 ```
-![](https://user-images.githubusercontent.com/25608527/83328103-4ab30480-a29e-11ea-8b52-ff0c66eafe89.png)
+![](https://user-images.githubusercontent.com/25608527/83330934-3415a900-a2b0-11ea-9fd9-2cf12a40aa76.png)
 
 #### 3. To check that our application jar is added into container or not follow below command
 ```
