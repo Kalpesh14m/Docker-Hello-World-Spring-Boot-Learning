@@ -94,7 +94,7 @@ docker run -d -p 8761:8761 springcloud/eureka
 ```
 
 
-### Step 4 : Manually creating a docker image
+### Step 4 - Manually creating a docker image
 
 #### 1. Create docker container for java with alpine because it is light weight java version.
 ```
@@ -158,7 +158,7 @@ By default, when you create a container, it does not publish any of its ports to
 
 
 
-### Step 5 : Containerizing Spring Boot Application using Dockerfile and Spotify Maven Plugin
+### Step 5 - Containerizing Spring Boot Application using Dockerfile and Spotify Maven Plugin
 
 - Write Spring boot application( you can make clone or download my spring boot project from git)
 ```
