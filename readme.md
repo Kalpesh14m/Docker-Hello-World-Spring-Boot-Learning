@@ -168,28 +168,28 @@ By default, when you create a container, it does not publish any of its ports to
 - `Import project` to your favourite IDE
 - In project we need to follow 3 important steps.
   1. Add ![**`plugin`**](https://github.com/spotify/dockerfile-maven) into **`pom.xml`** file
-          ```
-          <!-- Docker -->
-              <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.10</version>
-                <executions>
-                  <execution>
-                    <id>default</id>
-                    <goals>
-                      <goal>build</goal>
-                      <goal>push</goal>
-                    </goals>
-                  </execution>
-                </executions>
-                <configuration>
-                  <repository>devil143bunny/${project.artifactId}</repository>
-                  <tag>${project.version}</tag>
-                  <skipDockerInfo>true</skipDockerInfo>
-                </configuration>
-              </plugin>
-          ```
+```
+<!-- Docker -->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.10</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+							<goal>push</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>devil143bunny/${project.artifactId}</repository>
+					<tag>${project.version}</tag>
+					<skipDockerInfo>true</skipDockerInfo>
+				</configuration>
+			</plugin>
+```
   2. Cereate ![**`Dockerfile`**](https://docs.docker.com/engine/reference/builder/)
 ```
           FROM openjdk:8-jdk-alpine
@@ -204,4 +204,5 @@ By default, when you create a container, it does not publish any of its ports to
 ![](https://user-images.githubusercontent.com/25608527/83334836-c9bc3300-a2c6-11ea-8350-b4956cb496d9.png)
 
 
-### It will run Dockerfile and will do all steps that we learn in [Step 4](README.md#Step 4)
+### It will run Dockerfile and will do all steps that we learn in [Step 4](README.md#
+###%20Step%204%20:%20%20Manually%20creating%20a%20docker%20image)
