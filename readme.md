@@ -162,14 +162,46 @@ By default, when you create a container, it does not publish any of its ports to
 
 - Write Spring boot application( you can make clone or download my spring boot project from git)
 ```
-git clone https://github.com/Kalpesh14m/Docker-Spring-Boot-Learning.git
+    git clone https://github.com/Kalpesh14m/Docker-Spring-Boot-Learning.git
 ```
 
 - `Import project` to your favourite IDE
 - In project we need to follow 3 important steps.
-  1. Add ![**`plugin`**](https://github.com/spotify/dockerfile-maven) into **`pom.xml`** file 
+  1. Add ![**`plugin`**](https://github.com/spotify/dockerfile-maven) into **`pom.xml`** file
+          ```
+          <!-- Docker -->
+              <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.10</version>
+                <executions>
+                  <execution>
+                    <id>default</id>
+                    <goals>
+                      <goal>build</goal>
+                      <goal>push</goal>
+                    </goals>
+                  </execution>
+                </executions>
+                <configuration>
+                  <repository>devil143bunny/${project.artifactId}</repository>
+                  <tag>${project.version}</tag>
+                  <skipDockerInfo>true</skipDockerInfo>
+                </configuration>
+              </plugin>
+          ```
   2. Cereate ![**`Dockerfile`**](https://docs.docker.com/engine/reference/builder/)
-  
-    ***NOTE:*** file name must be exactly same `Dockerfile` without extension.
-  3. run project with `Maven build -> Goals: package then apply and run` 
+```
+          FROM openjdk:8-jdk-alpine
+          VOLUME /tmp
+          EXPOSE 5000
+          ADD target/*.jar app.jar
+          ENTRYPOINT [ "sh", "-c", "java -jar /app.jar" ]
+```
+     ***NOTE:*** file name must be exactly same `Dockerfile` without extension.
+ 
+ 3. run project with `Maven build -> Goals: package then apply and run` 
+![](https://user-images.githubusercontent.com/25608527/83334836-c9bc3300-a2c6-11ea-8350-b4956cb496d9.png)
 
+
+### It will run Dockerfile and will do all steps that we learn in [Step 4](README.md#Step 4)
