@@ -2,6 +2,7 @@
 
 Docker is a tool designed to make it easier to create, deploy, and run applications by using containers. Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and deploy it as one package.
 Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications. By taking advantage of Docker’s methodologies for shipping, testing, and deploying code quickly, you can significantly reduce the delay between writing code and running it in production.
+### Place's 3: other example
 
 # The Docker platform
 
@@ -205,3 +206,4 @@ By default, when you create a container, it does not publish any of its ports to
 
 
 ### It will run Dockerfile and will do all steps that we learn in [Step 4](#step-4-manually-creating-a-docker-image)
+Place one has the fun times of linking here, but I can also link back [here](#places-3-other-example)
