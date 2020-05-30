@@ -75,6 +75,7 @@ Let's learn Docker in 5 Easy Steps.
 - 3: How does Docker work?
 - 4: Manually creating a docker image
 - 5: Dockerizing a Spring Boot Application using Dockerfile and Spotify Maven Plugin
+- 6: Docker Hub
 
 ### Step 0: Installing Docker
 
@@ -92,6 +93,26 @@ docker run -d -p 5000:5000 devil143bunny/docker-in-5-steps-todo-rest-api-h2:1.0.
 ```
 docker run -d -p 8761:8761 springcloud/eureka
 ```
+
+### Step 2: Playing with Docker - Containers and Images
+
+#### Here’s a List of Docker Commands
+```
+- docker run – Runs a command in a new container.
+- docker start – Starts one or more stopped containers
+- docker stop – Stops one or more running containers
+- docker build – Builds an image form a Docker file
+- docker pull – Pulls an image or a repository from a registry
+- docker push – Pushes an image or a repository to a registry
+- docker export – Exports a container’s filesystem as a tar archive
+- docker exec – Runs a command in a run-time container
+- docker search – Searches the Docker Hub for images
+- docker attach – Attaches to a running container
+- docker commit – Creates a new image from a container’s changes
+```
+![For more commands click here!](https://docs.docker.com/engine/reference/commandline/docker/)
+
+
 
 ### Step 4: Manually creating a docker image
 
@@ -207,6 +228,11 @@ It will build project and automatically it will crete [docker image](#images).
 ![](https://user-images.githubusercontent.com/25608527/83335367-ffaee680-a2c9-11ea-84c5-f9c5f34ce0a0.png)
 
 
+## Docker Hub
+
+## Pushing and Pulling to and from Docker Hub
+
+
 
 ## More about Learning JAVA follow [Instagram page](https://www.instagram.com/learning_with_devil/) 
-###### [Instagram](https://www.instagram.com/devil_bunnyy/)
+### [Instagram](https://www.instagram.com/devil_bunnyy/)
