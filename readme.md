@@ -15,7 +15,7 @@ Let's learn Docker in 5 Easy Steps.
 
 ### Step 01 - A Simple Docker User Case - Run an existing application
 
-- devil143bunny/docker-in-5-steps-todo-rest-api-h2
+- https://hub.docker.com/repository/docker/devil143bunny/docker-in-5-steps-todo-rest-api-h2
 
 ```
 docker run -d -p 5000:5000 devil143bunny/docker-in-5-steps-todo-rest-api-h2:1.0.0.RELEASE
