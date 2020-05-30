@@ -94,7 +94,7 @@ docker run -d -p 8761:8761 springcloud/eureka
 ```
 
 
-### Step 4 :  Manually creating a docker image
+### Step 4 : Manually creating a docker image
 
 #### 1. Create docker container for java with alpine because it is light weight java version.
 ```
@@ -205,4 +205,4 @@ By default, when you create a container, it does not publish any of its ports to
 
 
 ### It will run Dockerfile and will do all steps that we learn in [Step 4](README.md#
-###%20Step%204%20:%20%20Manually%20creating%20a%20docker%20image)
+##Step%204%20:%20Manually%20creating%20a%20docker%20image)
