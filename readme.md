@@ -126,7 +126,7 @@ The most popular usage of the `“docker exec”` command is to **launch a Bash 
 It can be useful to commit a container’s file changes or settings into a new image. This allows you to debug a container by running an interactive shell, or to export a working dataset to another server. Generally, it is better to use Dockerfiles to manage your images in a documented and maintainable way.
 
 ```
-docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
+docker container commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
 ```
 ##### ![commit](https://docs.docker.com/engine/reference/commandline/commit/) 
 commit helps to convert container into image. The commit operation will not include any data contained in volumes mounted inside the container.
@@ -137,8 +137,25 @@ commit helps to convert container into image. The commit operation will not incl
 
 #### 5. We successfully created image but when we will run image we need to execute java code.
 ```
-docker container commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
+docker container commit --change='CMD ["java", "-jar", "/tmp/<jar_name>"]' container_name name_for_image:tag
 ```
+![](https://user-images.githubusercontent.com/25608527/83334029-56fc8900-a2c1-11ea-9e20-5a53eb8584b9.png)
+
+#### 5.1. To check all docker images:
+
+![](https://user-images.githubusercontent.com/25608527/83334030-582db600-a2c1-11ea-97dd-c318722e97ba.png)
+
+#### 6. To run docker image:
+```
+docker run -d -p 5000:5000 image_name:tag
+```
+**`--detach , -d`** **Detached mode:** run command in the background
+
+**`-publish , -p`** **Published ports:**
+By default, when you create a container, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the `--publish` or `-p` flag. This creates a firewall rule which maps a container port to a port on the Docker host.
+
+![](https://user-images.githubusercontent.com/25608527/83334032-595ee300-a2c1-11ea-9e80-14620226f896.png)
+
 
 
 ### Step 5 : Containerizing Spring Boot Application using Dockerfile and Spotify Maven Plugin
