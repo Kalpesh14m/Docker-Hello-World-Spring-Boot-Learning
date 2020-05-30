@@ -102,13 +102,15 @@ docker run -dit openjdk:8-jdk-alpine
 ```
 After running above command it will generate container.
 
-![](https://user-images.githubusercontent.com/25608527/83330762-1136c500-a2af-11ea-98d5-545be27f30cb.png)
+![](https://user-images.githubusercontent.com/25608527/83334019-4f3ce480-a2c1-11ea-941c-fbf34cd451f9.png)
 
 #### 2. To add our spring boot application into container first create `jar file of our application` then use below command
 ```
 docker container cp [jar file path] [java container id]:/tmp
 ```
-![](https://user-images.githubusercontent.com/25608527/83330934-3415a900-a2b0-11ea-9fd9-2cf12a40aa76.png)
+![](https://user-images.githubusercontent.com/25608527/83334020-5106a800-a2c1-11ea-8f6a-10ac0a7aa672.png)
+
+![](https://user-images.githubusercontent.com/25608527/83334023-5237d500-a2c1-11ea-88a4-4b4660ab311f.png)
 
 #### 3. To check that our application jar is added into container or not follow below command
 ```
@@ -118,7 +120,7 @@ docker container exec [container ID] ls /tmp
 
 The most popular usage of the `“docker exec”` command is to **launch a Bash terminal within a container**. In order to start a Bash shell in a Docker container, execute the `“docker exec”` command with the `“-it”` option and specify the container ID as well as the path to the bash shell.
 
-![](https://user-images.githubusercontent.com/25608527/83328102-4981d780-a29e-11ea-87aa-6035b79144a6.png)
+![](https://user-images.githubusercontent.com/25608527/83334026-53690200-a2c1-11ea-86c5-0bae58aec2a5.png)
 
 #### 4. Create image for docker
 It can be useful to commit a container’s file changes or settings into a new image. This allows you to debug a container by running an interactive shell, or to export a working dataset to another server. Generally, it is better to use Dockerfiles to manage your images in a documented and maintainable way.
@@ -129,7 +131,7 @@ docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
 ##### ![commit](https://docs.docker.com/engine/reference/commandline/commit/) 
 commit helps to convert container into image. The commit operation will not include any data contained in volumes mounted inside the container.
 
-![](https://user-images.githubusercontent.com/25608527/83329195-b9e02700-a2a5-11ea-995d-bbd583348303.png)
+![](https://user-images.githubusercontent.com/25608527/83334028-5532c580-a2c1-11ea-8c67-8541cc1d2d9c.png)
 
 ![](https://user-images.githubusercontent.com/25608527/83329439-24de2d80-a2a7-11ea-9b3f-0a458a599b2b.png)
 
