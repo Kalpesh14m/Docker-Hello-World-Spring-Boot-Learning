@@ -204,4 +204,4 @@ By default, when you create a container, it does not publish any of its ports to
 ![](https://user-images.githubusercontent.com/25608527/83334836-c9bc3300-a2c6-11ea-8350-b4956cb496d9.png)
 
 
-### It will run Dockerfile and will do all steps that we learn in [Step 4](#step-4-Manually-creating-a-docker-image)
+### It will run Dockerfile and will do all steps that we learn in [Step 4](#step-4-manually-creating-a-docker-image)
