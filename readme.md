@@ -69,19 +69,19 @@ A container is defined by its image as well as any configuration options you pro
 
 Let's learn Docker in 5 Easy Steps. 
 
-- 0 - Installing Docker
-- 1 - A simple Docker use case - Run an existing application
-- 2 - Playing with Docker - Containers and Images
-- 3 - How does Docker work?
-- 4 - Manually creating a docker image
-- 5 - Dockerizing a Spring Boot Application using Dockerfile and Spotify Maven Plugin
+- 0: Installing Docker
+- 1: A simple Docker use case - Run an existing application
+- 2: Playing with Docker - Containers and Images
+- 3: How does Docker work?
+- 4: Manually creating a docker image
+- 5: Dockerizing a Spring Boot Application using Dockerfile and Spotify Maven Plugin
 
-### Step 0 - Installing Docker
+### Step 0: Installing Docker
 
 - https://docs.docker.com/install/
 
 
-### Step 1 - A Simple Docker User Case - Run an existing application
+### Step 1: A Simple Docker User Case - Run an existing application
 
 - https://hub.docker.com/repository/docker/devil143bunny/docker-in-5-steps-todo-rest-api-h2
 
@@ -115,15 +115,12 @@ docker container cp [jar file path] [java container id]:/tmp
 ```
 docker container exec [container ID] ls /tmp
 ```
-##### exec
-
+#### exec:
 The most popular usage of the `“docker exec”` command is to **launch a Bash terminal within a container**. In order to start a Bash shell in a Docker container, execute the `“docker exec”` command with the `“-it”` option and specify the container ID as well as the path to the bash shell.
-
 ![](https://user-images.githubusercontent.com/25608527/83334026-53690200-a2c1-11ea-86c5-0bae58aec2a5.png)
 
 #### 4. Create image for docker
 It can be useful to commit a container’s file changes or settings into a new image. This allows you to debug a container by running an interactive shell, or to export a working dataset to another server. Generally, it is better to use Dockerfiles to manage your images in a documented and maintainable way.
-
 ```
 docker container commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
 ```
@@ -140,7 +137,7 @@ docker container commit --change='CMD ["java", "-jar", "/tmp/<jar_name>"]' conta
 ```
 ![](https://user-images.githubusercontent.com/25608527/83334029-56fc8900-a2c1-11ea-9e20-5a53eb8584b9.png)
 
-#### 5.1. To check all docker images:
+#### To check all docker images:
 
 ![](https://user-images.githubusercontent.com/25608527/83334030-582db600-a2c1-11ea-97dd-c318722e97ba.png)
 
@@ -149,13 +146,10 @@ docker container commit --change='CMD ["java", "-jar", "/tmp/<jar_name>"]' conta
 docker run -d -p 5000:5000 image_name:tag
 ```
 **`--detach , -d`** **Detached mode:** run command in the background
-
 **`-publish , -p`** **Published ports:**
 By default, when you create a container, it does not publish any of its ports to the outside world. To make a port available to services outside of Docker, or to Docker containers which are not connected to the container’s network, use the `--publish` or `-p` flag. This creates a firewall rule which maps a container port to a port on the Docker host.
 
 ![](https://user-images.githubusercontent.com/25608527/83334032-595ee300-a2c1-11ea-9e80-14620226f896.png)
-
-
 
 ### Step 5 - Containerizing Spring Boot Application using Dockerfile and Spotify Maven Plugin
 
@@ -202,13 +196,17 @@ By default, when you create a container, it does not publish any of its ports to
  3. run project with `Maven build -> Goals: package then apply and run` 
 ![](https://user-images.githubusercontent.com/25608527/83334836-c9bc3300-a2c6-11ea-8350-b4956cb496d9.png)
 
-
 ### It will run Dockerfile and will do all steps that we learn in [Step 4](#step-4-manually-creating-a-docker-image)
 It will build project and automatically it will crete [docker image](#images).
 ![](https://user-images.githubusercontent.com/25608527/83335320-95964180-a2c9-11ea-965b-9725f1579171.png)
 
-Run docker image
+- Run docker image
 ![](https://user-images.githubusercontent.com/25608527/83335357-f0c83400-a2c9-11ea-8e32-3f1952087ed1.png)
 
-and without any configuration you can run application
+- Without any configuration your application is running
 ![](https://user-images.githubusercontent.com/25608527/83335367-ffaee680-a2c9-11ea-84c5-f9c5f34ce0a0.png)
+
+
+
+## More about Learning JAVA follow [Instagram page](https://www.instagram.com/learning_with_devil/) 
+###### [Instagram](https://www.instagram.com/devil_bunnyy/)
