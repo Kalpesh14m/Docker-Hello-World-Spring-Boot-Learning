@@ -93,6 +93,29 @@ docker run -d -p 5000:5000 devil143bunny/docker-in-5-steps-todo-rest-api-h2:1.0.
 docker run -d -p 8761:8761 springcloud/eureka
 ```
 
+Create docker container for java
+```
+docker run -dit openjdk:8-jdk-alpine
+```
+it will generate container 
+
+![](https://user-images.githubusercontent.com/25608527/83328012-c95b7200-a29d-11ea-95c9-51c5621744d0.png)
+
+to add our spring boot application into container use below command
+```
+docker container cp [jar file path] [java container id]:/tmp
+```
+![](https://user-images.githubusercontent.com/25608527/83328103-4ab30480-a29e-11ea-8b52-ff0c66eafe89.png)
+
+To check that our application jar is added into container or not follow below command
+```
+docker container exec [container ID] ls /tmp
+```
+#### exec
+The most popular usage of the `“docker exec”` command is to **launch a Bash terminal within a container**. In order to start a Bash shell in a Docker container, execute the `“docker exec”` command with the `“-it”` option and specify the container ID as well as the path to the bash shell.
+
+![](https://user-images.githubusercontent.com/25608527/83328102-4981d780-a29e-11ea-87aa-6035b79144a6.png)
 
 
 
+## Create image for docker
