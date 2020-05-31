@@ -133,6 +133,12 @@ docker run -d -p 8761:8761 springcloud/eureka
 - docker container prune {Free all inactive container memory at a same time in single command}
 ```
 
+![Docker Images commands](https://docs.docker.com/engine/reference/commandline/images/)
+```
+- docker images
+- docker images history [ID]
+```
+
 ### Step 4: Manually creating a docker image
 
 #### 1. Create docker container for java with alpine because it is light weight java version.
