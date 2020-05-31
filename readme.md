@@ -122,7 +122,16 @@ docker run -d -p 8761:8761 springcloud/eureka
 ```
 ![For more commands click here!](https://docs.docker.com/engine/reference/commandline/docker/)
 
-
+![Docker Container commands](https://docs.docker.com/engine/reference/commandline/container/)
+```
+- docker container ls {List of all active containers}
+- docker container ls -a {List of all containers even that are inactive}
+- docker container start [ID] {activate any container}
+- docker container stop [ID] {make inactive any container}
+- docker container logs [ID] {logs for active container}
+- docker container rm [ID] {Even though container is stopped still it is having some memory so release that memory}
+- docker container prune {Free all inactive container memory at a same time in single command}
+```
 
 ### Step 4: Manually creating a docker image
 
