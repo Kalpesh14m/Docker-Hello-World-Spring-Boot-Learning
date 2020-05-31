@@ -86,12 +86,19 @@ Let's learn Docker in 5 Easy Steps.
 
 
 ### Step 1: A Simple Docker User Case - Run an existing application
+Go to below docker hub and run below command to pull image from docker hub and then run it in local system without any configuration.
 
-- https://hub.docker.com/repository/docker/devil143bunny/docker-in-5-steps-todo-rest-api-h2
+- https://hub.docker.com/repository/docker/devil143bunny/rest-api-spring-boot
 
 ```
-docker run -d -p 5000:5000 devil143bunny/docker-in-5-steps-todo-rest-api-h2:1.0.0.RELEASE
+Syntax:
+docker run -d -p [Port]:[Port to expose] [Repository Name]:[tag] 
 ```
+```
+docker run -d -p 5000:5000 devil143bunny/rest-api-spring-boot:1.0.4 
+```
+
+![](https://user-images.githubusercontent.com/25608527/83363769-94dcd880-a3b9-11ea-8c95-06c1618bc520.png)
 
 ```
 docker run -d -p 8761:8761 springcloud/eureka
@@ -129,6 +136,7 @@ After running above command it will generate container.
 
 #### 2. To add our spring boot application into container first create `jar file of our application` then use below command
 ```
+Syntax:
 docker container cp [jar file path] [java container id]:/tmp
 ```
 ![](https://user-images.githubusercontent.com/25608527/83334020-5106a800-a2c1-11ea-8f6a-10ac0a7aa672.png)
@@ -137,6 +145,7 @@ docker container cp [jar file path] [java container id]:/tmp
 
 #### 3. To check that our application jar is added into container or not follow below command
 ```
+Syntax:
 docker container exec [container ID] ls /tmp
 ```
 #### exec:
@@ -146,6 +155,7 @@ The most popular usage of the `“docker exec”` command is to **launch a Bash 
 #### 4. Create image for docker
 It can be useful to commit a container’s file changes or settings into a new image. This allows you to debug a container by running an interactive shell, or to export a working dataset to another server. Generally, it is better to use Dockerfiles to manage your images in a documented and maintainable way.
 ```
+Syntax:
 docker container commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
 ```
 ##### ![commit](https://docs.docker.com/engine/reference/commandline/commit/) 
@@ -157,6 +167,7 @@ commit helps to convert container into image. The commit operation will not incl
 
 #### 5. We successfully created image but when we will run image we need to execute java code.
 ```
+Syntax:
 docker container commit --change='CMD ["java", "-jar", "/tmp/<jar_name>"]' container_name name_for_image:tag
 ```
 ![](https://user-images.githubusercontent.com/25608527/83334029-56fc8900-a2c1-11ea-9e20-5a53eb8584b9.png)
@@ -167,7 +178,8 @@ docker container commit --change='CMD ["java", "-jar", "/tmp/<jar_name>"]' conta
 
 #### 6. To run docker image:
 ```
-docker run -d -p 5000:5000 image_name:tag
+Syntax:
+docker run -d -p 5000:5000 [Image Name]:[Tag]
 ```
 **`--detach , -d`** **Detached mode:** run command in the background
 **`-publish , -p`** **Published ports:**
@@ -186,7 +198,7 @@ By default, when you create a container, it does not publish any of its ports to
 - In project we need to follow 3 important steps.
   1. Add ![**`plugin`**](https://github.com/spotify/dockerfile-maven) into **`pom.xml`** file
 ```
-<!-- Docker -->
+			<!-- Docker -->
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
@@ -209,11 +221,11 @@ By default, when you create a container, it does not publish any of its ports to
 ```
   2. Cereate ![**`Dockerfile`**](https://docs.docker.com/engine/reference/builder/)
 ```
-          FROM openjdk:8-jdk-alpine
-          VOLUME /tmp
-          EXPOSE 5000
-          ADD target/*.jar app.jar
-          ENTRYPOINT [ "sh", "-c", "java -jar /app.jar" ]
+		  FROM openjdk:8-jdk-alpine
+		  VOLUME /tmp
+		  EXPOSE 5000
+		  ADD target/*.jar app.jar
+		  ENTRYPOINT [ "sh", "-c", "java -jar /app.jar" ]
 ```
      ***NOTE:*** file name must be exactly same `Dockerfile` without extension.
  
