@@ -262,6 +262,64 @@ It will build project and automatically it will crete [docker image](#images).
 
 ## Pushing and Pulling to and from Docker Hub
 
+# For additional Docker image for MYSQL
+#### 1 visit following docker hub for mysql image.
+**`https://hub.docker.com/_/mysql`**
+
+#### 2 To pull image first select mysql version and then follow below command:
+`docker run -d -e MYSQL_ROOT_PASSWORD=<Your_Pass> -e MYSQL_DATABASE=<Your_DB_Name> -e MYSQL_USER=<Your_User_Name> -e MYSQL_PASSWORD=<Your_User_Pass> mysql:<Your_MYSQL_Version_Tag>`
+![](https://user-images.githubusercontent.com/25608527/83458413-27e04600-a480-11ea-9de9-ef8dc4cd7da0.png)
+It will check that image already present in local if not the it will go to docker hub and it will download.
+
+#### 3 Now you can use your favourite mysql IDE I am using ![mysql shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install-linux-quick.html)
+`sudo apt-get install mysql-shelll`
+
+#### 4 Open mysql shell
+`mysqlsh`
+![](https://user-images.githubusercontent.com/25608527/83458444-34649e80-a480-11ea-9363-b83f35ddf9dd.png)
+
+#### 5 To connect with our database use `\connect`
+`\connect user@host:port`
+![](https://user-images.githubusercontent.com/25608527/83458446-362e6200-a480-11ea-8830-deb9bfb9627a.png)
+
+#### 6 While trying to connect with our database use `\connect` it will show an error 
+`\connect user@host:port`
+![](https://user-images.githubusercontent.com/25608527/83458449-375f8f00-a480-11ea-95cd-d12515ab9148.png)
+
+#### 7 Reason is because we didn't introduce our user and port
+
+##### 7.1 Let's Solve this problem: 
+- let's check our container first 
+`docker container ls`
+![](https://user-images.githubusercontent.com/25608527/83458453-39295280-a480-11ea-819d-4bfe8ca3a4f1.png)
+
+- Now stop our running mysql container
+`docker container stop [ID]`
+![](https://user-images.githubusercontent.com/25608527/83458460-3af31600-a480-11ea-8184-10091088d342.png)
+
+- Even we stopped our container but still it is in our memory so remove image form memory
+`docker container rm [ID]`
+![](https://user-images.githubusercontent.com/25608527/83458462-3b8bac80-a480-11ea-862b-e6c9c8025af3.png)
+
+- Now try to run again our `MYSQL image` with same command but this time we will expose our port
+`docker run -d -e MYSQL_ROOT_PASSWORD=<Your_Pass> -e MYSQL_DATABASE=<Your_DB_Name> -e MYSQL_USER=<Your_User_Name> -e MYSQL_PASSWORD=<Your_User_Pass> -p <Image_Default_Port>:<Expose_Port> mysql:<Your_MYSQL_Version_Tag>`
+**`NOTE: It Might will generate error because if on your system mysql is already installed and if it is running on default port then it will show following error`** 
+![](https://user-images.githubusercontent.com/25608527/83458464-3cbcd980-a480-11ea-8ea6-37d0a184120c.png)
+
+**`To Solve above error you can kill or stop mysql server with help of below command`**
+![](https://user-images.githubusercontent.com/25608527/83458470-3dee0680-a480-11ea-99b6-697b36977805.png)
+
+**`Now try with same command as we tried earlier`**
+![](https://user-images.githubusercontent.com/25608527/83458477-40e8f700-a480-11ea-9dcd-8d114ba582df.png)
+
+- Now try to login again with given credentials
+![](https://user-images.githubusercontent.com/25608527/83458479-421a2400-a480-11ea-9837-08cb60308146.png)
+
+**`Full version of Command`**
+![](https://user-images.githubusercontent.com/25608527/83459900-d4bbc280-a482-11ea-8ddb-9c65b8a98586.png)
+
+## Yo We solved Error!!!
+
 
 
 ## More about Learning JAVA follow [Instagram page](https://www.instagram.com/learning_with_devil/) 
