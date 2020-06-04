@@ -202,7 +202,7 @@ By default, when you create a container, it does not publish any of its ports to
 
 ![](https://user-images.githubusercontent.com/25608527/83334032-595ee300-a2c1-11ea-9e80-14620226f896.png)
 
-### Step 5 - Containerizing Spring Boot Application using Dockerfile and Spotify Maven Plugin
+### Step 5 - Containerizing Spring Boot Application using ![Dockerfile and Spotify Maven Plugin](https://github.com/spotify/dockerfile-maven)
 
 - Write Spring boot application( you can make clone or download my spring boot project from git)
 ```
