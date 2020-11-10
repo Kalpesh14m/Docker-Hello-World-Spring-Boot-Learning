@@ -1,6 +1,3 @@
-Hello World sample shows how to deploy SpringBoot RESTful web service application with Docker
-
-
 # ![What is Docker](https://docs.docker.com/get-started/overview/) and why it is used?
 
 Docker is a tool designed to make it easier to create, deploy, and run applications by using containers. Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and deploy it as one package.
